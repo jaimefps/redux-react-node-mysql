@@ -1,4 +1,4 @@
-DROP DATABASE testData;
+-- DROP DATABASE testData;
 
 CREATE DATABASE testData;
 
