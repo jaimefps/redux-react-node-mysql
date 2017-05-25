@@ -1,0 +1,8 @@
+.nav-bar-container { 
+  display: flex; 
+  border: 1px solid black; 
+  margin-bottom: 2px; 
+}
+.nav-bar-container > div {
+  margin: 15px;
+}
