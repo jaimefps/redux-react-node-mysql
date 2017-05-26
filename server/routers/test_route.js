@@ -1,17 +1,17 @@
-var express = require('express');
-var connection = require('../database.js');
-var router = express.Router();
+const express = require('express');
+const connection = require('../database.js');
+const router = express.Router();
 
-router.post('/', function (req, res) {
+router.post('/', (req, res) => {
   console.log('POST action reached the server')
-	let data = req.body;
-	let row = {
+	const data = req.body;
+	const row = {
 		name: data.name,
 		email: data.email,
 		description: data.description,
 		url: data.url,
 	};
-  connection.query('INSERT INTO testTable SET ?', row, function (err, result) {
+  connection.query('INSERT INTO testTable SET ?', row, (err, result) => {
    if (err) console.log(err);
    res.sendStatus(201).end();
   });
@@ -19,7 +19,7 @@ router.post('/', function (req, res) {
 
 router.get('/', function (req, res) {
   console.log('GET action reached the server')
-  connection.query('SELECT * FROM testTable', function (err, result) {
+  connection.query('SELECT * FROM testTable', (err, result) => {
     if (err) console.log(err);
     res.send(result);
   });

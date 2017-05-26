@@ -1,19 +1,17 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+
 // MySQL server.
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
+const connection = require('./database.js');
+const testRoute = require('./routers/test_route.js');
 
-var connection = require('./database.js');
-var testRoute = require('./routers/test_route.js');
-
-var app = express();
-var PORT = process.env.PORT || 8000;
+const app = express();
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.use('/test', testRoute);
 
-app.listen(PORT, function() {
-	console.log('server-side-app listening on PORT ', PORT);
-});
+app.listen(PORT, () => console.log('server-side-app listening on PORT ', PORT));

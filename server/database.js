@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 // disjunction set up for Runnable's deployment environment.
 var connection = mysql.createConnection({
