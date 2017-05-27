@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json());
 
 // mySQL server w/knex
-// const knex = require('./database.js');
 const testRoute = require('./routers/test_route.js');
 app.use('/test', testRoute);
 
