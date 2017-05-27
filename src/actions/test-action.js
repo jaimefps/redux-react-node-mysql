@@ -16,13 +16,13 @@ export const testPost = () => (dispatch) => {
     description: 'test description',
     url: 'test url',
   }
-  axios.post('/test', dummyData)
+  axios.post('/sql', dummyData)
   .then(() => dispatch({ type: 'POST_DATA' }))
 };
 
 // test GET action
 export const testGet = () => (dispatch) => {
-  axios.get('/test')
+  axios.get('/sql')
   .then((res) => {
     dispatch({ type: 'GET_DATA', payload: res.data })
   });
