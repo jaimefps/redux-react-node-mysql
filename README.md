@@ -7,6 +7,6 @@ Environment for a redux/react/node/mysql stack
 
 `mysql -u root < server/schema.sql`
 
-`node server/server.js`
+`node server/index.js`
 
 `npm start`
