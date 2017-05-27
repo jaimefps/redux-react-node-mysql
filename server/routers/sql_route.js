@@ -1,5 +1,5 @@
 const express = require('express');
-const knex = require('../database.js');
+const knex = require('../mysql_db.js');
 const router = express.Router();
 
 const bunyan = require('bunyan');

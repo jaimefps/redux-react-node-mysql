@@ -1,4 +1,3 @@
-// KNEX  implementation test
 const knex = require('knex')({
   client: "mysql",
   connection: {
