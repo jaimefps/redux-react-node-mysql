@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 const SQLRoute = require('./routers/sql_route.js');
 app.use('/sql', SQLRoute);
 
+const noSQLRoute = require('./routers/non_sql_route.js')
+
 app.use(express.static(path.join(__dirname, '../build')));
 
-app.listen(PORT, () => log.info('server-side-app listening on PORT ', PORT));
+app.listen(PORT, () => console.log('server-side-app listening on PORT ', PORT));
