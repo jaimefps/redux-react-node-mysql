@@ -1,9 +1,8 @@
 const express = require('express');
-const connection = require('../database.js');
+const knex = require('../database.js');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  console.log('POST action reached the server')
 	const data = req.body;
 	const row = {
 		name: data.name,
@@ -11,18 +10,13 @@ router.post('/', (req, res) => {
 		description: data.description,
 		url: data.url,
 	};
-  connection.query('INSERT INTO testTable SET ?', row, (err, result) => {
-   if (err) console.log(err);
-   res.sendStatus(201).end();
-  });
+  knex.insert(row).into('testTable')
+    .then((result) => res.json({ success: true, message: 'ok' }));
 });
 
 router.get('/', function (req, res) {
-  console.log('GET action reached the server')
-  connection.query('SELECT * FROM testTable', (err, result) => {
-    if (err) console.log(err);
-    res.send(result);
-  });
+  knex.select().table('testTable')
+    .then((result) => res.send(result));
 });
 
 module.exports = router;
