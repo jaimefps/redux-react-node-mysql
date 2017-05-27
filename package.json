@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "body-parser": "^1.17.2",
+    "bunyan": "^1.8.10",
     "express": "^4.15.3",
     "knex": "^0.13.0",
     "mongodb": "^2.2.27",
