@@ -7,6 +7,6 @@ Environment for a redux/react/node/mysql stack
 
 `mysql -u root < server/schema.sql`
 
-`node server/index.js`
+`nodemon server/index.js | ./node_modules/.bin/bunyan -j`
 
 `npm start`
