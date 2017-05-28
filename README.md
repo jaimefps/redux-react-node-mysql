@@ -1,7 +1,7 @@
 # redux-react-node-mysql
 Environment for a redux/react/node/mysql stack 
 
-# To run app locally, do these commands from the root:
+# To run app locally, run these commands from the root:
 
 `npm i`
 
