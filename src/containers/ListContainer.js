@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import List from '../components/List';
 
 // import test functionality
-import { testGet } from '../actions/test-action';
+import { testGet, testNoSQLGet } from '../actions/test-action';
 
 // give component access any keys in the Store-state @ reducers/index.js
 const mapStateToProps = (state) => {
@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       testGet,
+      testNoSQLGet,
     }, 
     dispatch
   );

@@ -6,7 +6,7 @@ const bunyan = require('bunyan');
 const log = bunyan.createLogger({name: 'sql_route.js'})
 
 router.post('/', (req, res) => {
-  // log.info('POST fired with incomming data', req.body);
+  log.info('POST fired with incomming data', req.body);
 	const data = req.body;
 	const row = {
 		name: data.name,
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', function (req, res) {
-  // log.info('GET fired');
+  log.info('GET fired');
   knex.select().table('sql_table')
     .then((result) => res.send(result));
 });

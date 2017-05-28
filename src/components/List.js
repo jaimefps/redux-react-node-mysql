@@ -20,10 +20,11 @@ class List extends Component {
       <div style={{border: '1px solid black'}}>
         Data Tiles
         <br/><br/>
-        <button onClick={ () => this.props.testGet() }>test get</button>
+        <button onClick={ () => this.props.testGet() }>test SQL get</button>
         <br/><br/>        
+        <button onClick={ () => this.props.testNoSQLGet() }> test noSQL get </button>     
+        <br/><br/> 
         {JSON.stringify(this.props.async)}
-        <br/><br/>       
         {/*{ this.createListItem() }*/}
       </div>
     )

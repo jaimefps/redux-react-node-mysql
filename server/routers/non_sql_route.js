@@ -3,7 +3,8 @@ const router = express.Router();
 
 const Data = require('../SQL-non/model.js');
 
-router.post('/nosql/test', function (req, res) {
+router.post('/', (req, res) => {
+  console.log('POST action reached no-sql route');
   let data = req.body;
   let row = new Data({
     name: data.name,
@@ -14,12 +15,12 @@ router.post('/nosql/test', function (req, res) {
   row.save();
 });
 
-router.get('/nosql/test', function (req, res) {
-  Data.find({}, function (err, data) {
+router.get('/', (req, res) => {
+  console.log('GET action reached no-sql route');
+  Data.find({}, (err, data) => {
     if (err) console.log(err);
     res.send(data);
   });
 });
-
 
 module.exports = router;

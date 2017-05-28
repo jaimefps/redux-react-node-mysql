@@ -6,7 +6,9 @@ class Form extends Component {
       <div style={{border: '1px solid black'}}>
         Submition Form
         <br/><br/>
-        <button onClick={() => this.props.testPost()}>POST to db</button>
+        <button onClick={() => this.props.testPost()}>POST to SQL db</button>
+        <br/><br/>
+        <button onClick={() => this.props.testNoSQLPost()}>POST to noSQL db</button>
       </div>
     )
   }
