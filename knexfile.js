@@ -1,14 +1,18 @@
 // Update with your config settings.
+const path = require('path');
+
 module.exports = {
 
   development: {
     client: 'mysql',
-    connection: 'mysql://localhost/knex_test',
+    connection: {
+      filename: './SQL/mysql_db',
+    },
     migrations: {
-      directory: `${__dirname}/SQL/migrations`,
+      directory: path.join(__dirname, '/server/SQL/migrations'),
     },
     seeds: {
-      directory: `${__dirname}/SQL/seeds`,
+      directory: path.join(__dirname, '/server/SQL/seeds'),
     },
   },
 
@@ -20,8 +24,8 @@ module.exports = {
       password: '',
     },
     pool: {
-      min: 2,
-      max: 10,
+      min: 0,
+      max: 20,
     },
     migrations: {
       tableName: 'sql_table',
@@ -29,15 +33,15 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
       database: 'SQL_Data',
       user: 'root',
       password: '',
     },
     pool: {
-      min: 2,
-      max: 10,
+      min: 0,
+      max: 20,
     },
     migrations: {
       tableName: 'sql_table',
