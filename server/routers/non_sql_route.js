@@ -17,7 +17,8 @@ router.post('/', (req, res) => {
     description: data.description
   });
   row.save()
-  .catch((err) => log.info(err));
+  .catch((err) => log.info(err))
+  .then(() => res.sendStatus(201).end());
 });
 
 router.get('/', (req, res) => {

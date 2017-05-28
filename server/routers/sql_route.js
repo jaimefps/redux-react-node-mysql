@@ -15,13 +15,15 @@ router.post('/', (req, res) => {
 		url: data.url,
 	};
   knex.insert(row).into('sql_table')
-    .then((result) => res.json({ success: true, message: 'ok' }));
+    .catch((err) => log.info(err))
+    .then(() => res.sendStatus(201).end());
 });
 
 router.get('/', function (req, res) {
   log.info('GET fired');
   knex.select().table('sql_table')
-    .then((result) => res.send(result));
+    .then((result) => res.send(result))
+    .catch((err) => log.info(err));
 });
 
 module.exports = router;
