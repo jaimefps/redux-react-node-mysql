@@ -23,10 +23,9 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   log.info('GET action reached no-sql route');
-  Document.find({}, (err, data) => {
-    if (err) log.info(err);
-    res.send(data);
-  });
+  Document.find({})
+  .catch((err) => log.info(err))
+  .then((data) => res.send(data))
 });
 
 module.exports = router;
