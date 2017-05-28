@@ -3,7 +3,7 @@ const knex = require('../SQL/mysql_db.js');
 const router = express.Router();
 
 const bunyan = require('bunyan');
-const log = bunyan.createLogger({name: 'sql_route.js'})
+const log = bunyan.createLogger({ name: 'sql_route.js' })
 
 router.post('/', (req, res) => {
   log.info('POST fired with incomming data', req.body);

@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
+const bunyan = require('bunyan');
+const log = bunyan.createLogger({ name: 'sql_route.js' })
+
 const Data = require('../SQL-non/model.js');
 
+// NOTE: Mongoose mpromise (mongoose's default promise library) is deprecated, 
+// I need to plug in my own promise library instead.
+Data.Promise = require('bluebird');
+
 router.post('/', (req, res) => {
-  console.log('POST action reached no-sql route');
+  log.info('POST action reached no-sql with data');
   let data = req.body;
   let row = new Data({
     name: data.name,
@@ -12,13 +19,15 @@ router.post('/', (req, res) => {
     image: data.image,
     description: data.description
   });
-  row.save();
+  row.save()
+  .then((result) => log.info(result))
+  .catch((err) => log.info(err));
 });
 
 router.get('/', (req, res) => {
-  console.log('GET action reached no-sql route');
+  log.info('GET action reached no-sql route');
   Data.find({}, (err, data) => {
-    if (err) console.log(err);
+    if (err) console.error(err);
     res.send(data);
   });
 });
