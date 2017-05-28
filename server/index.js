@@ -12,7 +12,7 @@ const SQLRoute = require('./routers/sql_route.js');
 app.use('/sql', SQLRoute);
 
 // mongoDB w/mongoose
-const noSQLRoute = require('./routers/non_sql_route.js')
+const noSQLRoute = require('./routers/non_sql_route.js');
 app.use('/nosql', noSQLRoute);
 
 app.use(express.static(path.join(__dirname, '../build')));
