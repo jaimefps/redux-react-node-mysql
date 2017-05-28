@@ -6,7 +6,7 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      filename: './SQL/mysql_db',
+      filename: '/server/SQL/mysql_db',
     },
     migrations: {
       directory: path.join(__dirname, '/server/SQL/migrations'),
@@ -19,9 +19,10 @@ module.exports = {
   staging: {
     client: 'mysql',
     connection: {
-      database: 'SQL_Data',
+      host: 'localhost',
       user: 'root',
       password: '',
+      database: 'SQL_Data',
     },
     pool: {
       min: 0,
@@ -35,9 +36,10 @@ module.exports = {
   production: {
     client: 'mysql',
     connection: {
-      database: 'SQL_Data',
+      host: 'localhost',
       user: 'root',
       password: '',
+      database: 'SQL_Data',
     },
     pool: {
       min: 0,
