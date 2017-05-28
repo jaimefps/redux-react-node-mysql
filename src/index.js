@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 // redux
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
-import allReducers from './reducers/index';
 import thunk from 'redux-thunk';
+import allReducers from './reducers/index';
 
 // components/containers
 import AppContainer from './containers/AppContainer';
@@ -22,13 +22,13 @@ const store = createStore(
   composeEnhancers(
     applyMiddleware(...middleware),
     ...enhancers,
-  )
+  ),
 );
 
 // wrap parent app node in the provider
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
-  </Provider>, 
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById('root'),
 );

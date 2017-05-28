@@ -11,24 +11,24 @@ class List extends Component {
         <div>{cat.name}</div>
         <div>{cat.owner}</div>
         <div className="cat-photo" style={{ backgroundImage: `url(${cat.image})` }} />
-      </div> 
+      </div>
     ));
   }
 
   render() {
     return (
-      <div style={{border: '1px solid black'}}>
+      <div style={{ border: '1px solid black' }}>
         Data Tiles
-        <br/><br/>
-        <button onClick={ () => this.props.testGet() }>test SQL get</button>
-        <br/><br/>        
-        <button onClick={ () => this.props.testNoSQLGet() }> test noSQL get </button>     
-        <br/><br/> 
+        <br /><br />
+        <button onClick={() => this.props.testGet()}>test SQL get</button>
+        <br /><br />
+        <button onClick={() => this.props.testNoSQLGet()}> test noSQL get </button>
+        <br /><br />
         {JSON.stringify(this.props.async)}
-        {/*{ this.createListItem() }*/}
+        {/* { this.createListItem() }*/}
       </div>
-    )
-  } 
+    );
+  }
 }
 
 export default List;
