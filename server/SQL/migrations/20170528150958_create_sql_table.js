@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('sql_table', ((table) =>
   table.string('name').notNullable();
   table.string('email').notNullable();
   table.string('description').notNullable();
-  table.string('url').otNullable();
+  table.string('url').notNullable();
 }));
 
-exports.down = (knex, Promise) => knex.schema.dropTable('todos');
+exports.down = (knex, Promise) => knex.schema.dropTable('sql_table');

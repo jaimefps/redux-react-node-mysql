@@ -1,4 +1,9 @@
-// Update with your config settings.
+// run the following command to make a migration:
+// knex migrate:make $migration_name
+
+// run the following command to start a migration:
+// knex migrate:latest
+
 const path = require('path');
 
 module.exports = {
@@ -6,30 +11,16 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      filename: '/server/SQL/mysql_db',
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'SQL_Data',
     },
     migrations: {
       directory: path.join(__dirname, '/server/SQL/migrations'),
     },
     seeds: {
       directory: path.join(__dirname, '/server/SQL/seeds'),
-    },
-  },
-
-  staging: {
-    client: 'mysql',
-    connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'SQL_Data',
-    },
-    pool: {
-      min: 0,
-      max: 20,
-    },
-    migrations: {
-      tableName: 'sql_table',
     },
   },
 
@@ -42,8 +33,8 @@ module.exports = {
       database: 'SQL_Data',
     },
     pool: {
-      min: 0,
-      max: 20,
+      min: 2,
+      max: 10,
     },
     migrations: {
       tableName: 'sql_table',
