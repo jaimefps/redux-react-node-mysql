@@ -1,11 +1,8 @@
+const config = require('./config');
+
 const knex = require('knex')({
   client: 'mysql',
-  connection: {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'SQL_Data',
-  },
+  connection: config,
 });
 
 module.exports = knex;

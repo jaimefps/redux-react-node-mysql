@@ -5,17 +5,13 @@
 // knex migrate:latest
 
 const path = require('path');
+const config = require('./server/mysql/config');
 
 module.exports = {
 
   development: {
     client: 'mysql',
-    connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'SQL_Data',
-    },
+    connection: config,
     migrations: {
       directory: path.join(__dirname, '/server/mysql/migrations'),
     },
@@ -26,12 +22,7 @@ module.exports = {
 
   production: {
     client: 'mysql',
-    connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'SQL_Data',
-    },
+    connection: config,
     pool: {
       min: 2,
       max: 10,
