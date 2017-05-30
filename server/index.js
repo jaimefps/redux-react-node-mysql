@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 
-// mySQL w/knex
-const SQLRoute = require('./routers/sql_route.js');
+// mysql w/knex
+const SQLRoute = require('./routers/mysql_route.js');
 app.use('/sql', SQLRoute);
 
-// mongoDB w/mongoose
-const noSQLRoute = require('./routers/non_sql_route.js');
+// mongo w/mongoose
+const noSQLRoute = require('./routers/mongo_route.js');
 app.use('/nosql', noSQLRoute);
 
 app.use(express.static(path.join(__dirname, '../build')));

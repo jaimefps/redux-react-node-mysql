@@ -17,10 +17,10 @@ module.exports = {
       database: 'SQL_Data',
     },
     migrations: {
-      directory: path.join(__dirname, '/server/SQL/migrations'),
+      directory: path.join(__dirname, '/server/mysql/migrations'),
     },
     seeds: {
-      directory: path.join(__dirname, '/server/SQL/seeds'),
+      directory: path.join(__dirname, '/server/mysql/seeds'),
     },
   },
 

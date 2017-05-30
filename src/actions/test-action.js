@@ -44,7 +44,6 @@ export const testNoSQLPost = () => (dispatch) => {
 export const testNoSQLGet = () => (dispatch) => {
   axios.get('/nosql')
   .then((res) => {
-    console.log('res data', res.data)
     dispatch({ type: 'GET_DATA', payload: res.data })
   });
 };
